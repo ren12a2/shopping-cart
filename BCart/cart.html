@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart</title>
+<link rel="stylesheet" type="text/css" href="cart.css">
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+  
+  <button id="clear-cart-btn" style="position: absolute; top: 10px; right: 10px;">Clear Cart</button>
+
+  <div id="cart-wrapper">
+
+    <div id="cart-items">
+      <!-- Cart items will be displayed here -->
+    </div>
+
+    <div id="total-bill" style="position: absolute; bottom: 10px; right: 10px; background-color: black; color: white; padding: 5px;">
+      Total: $<span id="total-amount">0.00</span>
+    </div>
+    
+  </div>
+  <a href="cat.html" class="back-to-shopping">Back to Shopping</a>
+  <script>
+    // Function to display cart items
+    function displayCart() {
+      // Get cart items from local storage
+      var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Clear previous items
+      document.getElementById('cart-items').innerHTML = '';
+
+    var total = 0; // Initialize total amount
+
+      // Display items in cart and calculate total
+      cartItems.forEach(function(item) {
+        var itemElement = document.createElement('div');
+        itemElement.textContent = item.name + ' - $' + item.price;
+        document.getElementById('cart-items').appendChild(itemElement);
+
+        // Update total
+        total += parseFloat(item.price);
+      });
+
+      // Update total amount in the UI
+      document.getElementById('total-amount').textContent = total.toFixed(2);
+    }
+
+
+    // Call displayCart when the page loads
+    displayCart();
+
+    // Function to clear the cart
+    function clearCart() {
+      localStorage.removeItem('cart'); // Remove cart items from local storage
+      displayCart(); // Refresh the cart display
+    }
+
+    // Call displayCart when the page loads
+    displayCart();
+
+    // Add event listener to the clear cart button
+    document.getElementById('clear-cart-btn').addEventListener('click', clearCart);
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fce4ec; /* Light pink background */
+}
+
+.back-to-login {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  background-color: #c2185b; /* Dark pink */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.back-to-login:hover {
+  background-color: #e91e63; /* Lighter pink on hover */
+}
+
+.catalog-heading {
+  text-align: center;
+  font-size: 36px; /* Increased font size */
+  font-family: 'Segoe Script', cursive; /* Changed font family to cursive */
+  color: #c2185b; /* Dark pink */
+  margin-bottom: 120px; /* Increased margin-bottom */
+}
+
+.visit-cart {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #c2185b; /* Dark pink background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.visit-cart:hover {
+  background-color: #e91e63; /* Lighter pink on hover */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+}
+
+.product h2 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #c2185b; /* Dark pink */
+}
+
+.product p {
+  font-size: 14px;
+  color: #555; /* Dark gray */
+}
+
+.add-to-cart {
+  background-color: #e91e63; /* Dark pink */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.add-to-cart:hover {
+  background-color: #f06292; /* Lighter pink on hover */
+}

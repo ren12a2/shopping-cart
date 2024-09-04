@@ -1,0 +1,55 @@
+/* Styles for the shopping cart */
+body {
+  font-family: 'Arial', sans-serif; /* Changed font to Arial */
+  margin: 0;
+  padding: 0;
+  background-color: #fce4ec; /* Light pink background */
+}
+
+h1 {
+  text-align: center;
+  font-size: 48px; /* Larger font size */
+  font-style: 'monospace'; /* Italic font style */
+  color: #c2185b; /* Dark pink color */
+}
+
+#cart-wrapper {
+  margin: 20px auto;
+  width: 80%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #fff; /* White background */
+  position: relative; /* Ensure relative positioning */
+}
+
+#total-bill {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #c2185b; /* Dark pink background */
+  color: #fff; /* White text color */
+  padding: 5px;
+}
+
+#cart-items div {
+  background-color: #fce4ec; /* Light pink background */
+  border: 2px solid #ed4866; /* Light pink border */
+  padding: 15px; /* Increased padding */
+  margin-bottom: 10px; /* Increased margin */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  font-size: 20px; /* Larger font size */
+}
+
+.back-to-shopping {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  background-color: #c2185b; /* Dark pink color for the button */
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 9999;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Catalog</title>
+  <link rel="stylesheet" href="cat.css"> <!-- Assuming you have a CSS file for styling -->
+  <style>
+    .add-remove-buttons button {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <a href="form.html" class="back-to-login">Back to Login</a>
+  <h1 class="catalog-heading">The Thrift Shop</h1> 
+  <a href="cart.html" class="visit-cart">Visit Cart</a>
+
+  <div class="container">
+    <div class="product">
+      <img src="items/green.png" alt="Product 1">
+      <h2>Green Garb</h2>
+      <p>Material type: Rayon<br>
+         Length: Knee-Length<br>
+         Occasion type: Casual<br>
+         Sleeve type: Long Sleeve<br>
+         Pattern: Freestyle Waves<br>
+         Style: Fit And Flare<br>
+         Country of Origin: India</p>
+      <p>$19.99</p>
+      <div class="add-remove-buttons">
+        <button onclick="removeFromCart('Green Garb', 19.99)">-</button>
+        <button onclick="addToCart('Green Garb', 19.99)">+</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="items/orange.png" alt="Product 2">
+      <h2>Desert Delilah</h2>
+      <p>Material type: Rayon<br>
+         Length: Knee-Length<br>
+         Occasion type: Casual<br>
+         Sleeve type: Long Sleeve<br>
+         Pattern: Freestyle Waves<br>
+         Style: Fit And Flare<br>
+         Country of Origin: India</p>
+      <p>$29.99</p>
+      <div class="add-remove-buttons">
+        <button onclick="removeFromCart('Desert Delilah', 29.99)">-</button>
+        <button onclick="addToCart('Desert Delilah', 29.99)">+</button>
+      </div>
+    </div>
+    
+    <div class="product">
+      <img src="items/green.png" alt="Product 3">
+      <h2>Dark Delusion</h2>
+      <p>Material type: Rayon<br>
+         Length: Knee-Length<br>
+         Occasion type: Casual<br>
+         Sleeve type: Long Sleeve<br>
+         Pattern: Freestyle Waves<br>
+         Style: Fit And Flare<br>
+         Country of Origin: India</p>
+      <p>$29.99</p>
+      <div class="add-remove-buttons">
+        <button onclick="removeFromCart('Dark Delusion', 29.99)">-</button>
+        <button onclick="addToCart('Dark Delusion', 29.99)">+</button>
+      </div>
+    </div>
+    <!-- Add more products as needed -->
+  </div>
+
+  <script>
+    function addToCart(name, price) {
+      var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.push({ name: name, price: price });
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      
+      // Custom alert message without OK button
+      var alertMessage = document.createElement('div');
+      alertMessage.textContent = 'Item added to cart!';
+      alertMessage.style.position = 'fixed';
+      alertMessage.style.bottom = '10px'; /* adjusted to bottom */
+      alertMessage.style.right = '10px'; /* adjusted to right */
+      alertMessage.style.backgroundColor = 'pink'; /* changed background color */
+      alertMessage.style.color = 'black'; /* changed text color */
+      alertMessage.style.padding = '10px';
+      alertMessage.style.borderRadius = '5px';
+      alertMessage.style.zIndex = '9999';
+      document.body.appendChild(alertMessage);
+      
+      // Remove the alert message after a certain time (e.g., 1 sec)
+      setTimeout(function() {
+        alertMessage.remove();
+      }, 1000);
+    }
+
+    function removeFromCart(name, price) {
+      var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      var index = cartItems.findIndex(item => item.name === name && item.price === price);
+      if (index !== -1) {
+        cartItems.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        
+        // Custom alert message without OK button
+        var alertMessage = document.createElement('div');
+        alertMessage.textContent = 'Item removed from cart!';
+        alertMessage.style.position = 'fixed';
+        alertMessage.style.bottom = '10px'; /* adjusted to bottom */
+        alertMessage.style.right = '10px'; /* adjusted to right */
+        alertMessage.style.backgroundColor = 'pink'; /* changed background color */
+        alertMessage.style.color = 'black'; /* changed text color */
+        alertMessage.style.padding = '10px';
+        alertMessage.style.borderRadius = '5px';
+        alertMessage.style.zIndex = '9999';
+        document.body.appendChild(alertMessage);
+        
+        // Remove the alert message after a certain time (e.g., 1 sec)
+        setTimeout(function() {
+          alertMessage.remove();
+        }, 1000);
+      }
+    }
+  </script>
+  
+</body>
+</html>
